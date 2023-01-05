@@ -7,12 +7,14 @@ import { FoodListComponent } from './food-list/food-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { PortionsComponent } from './portions/portions.component';
+import { PortionTableComponent } from './portions/portion-table/portion-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FoodListComponent,
-    PortionsComponent
+    PortionsComponent,
+    PortionTableComponent
   ],
   imports: [
     BrowserModule,

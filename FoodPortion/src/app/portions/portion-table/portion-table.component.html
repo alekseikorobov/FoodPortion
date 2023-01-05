@@ -1,0 +1,68 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Продукты</th>
+            <th>Тип</th>
+            <th>Основное</th>
+            <th>Кол-во, гр/чел</th>
+            <th>Калорийность, ккал/100гр</th>
+            <th>Калорийность порции</th>
+            <th>белки (%)</th>
+            <th>жиры (%)</th>
+            <th>Углеводы (%)</th>
+            <th>белки (г)</th>
+            <th>жиры (г)</th>
+            <th>углеводы (г)</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let p of portion?.portionList" class="my-tr">
+            <td>{{p.product.name}}</td>
+            <td>{{p.product.types}}</td>
+            <td>{{p.product.isMain}}</td>
+            <td>{{p.product.onePortionG}}</td>
+            <td>{{p.product.calories100g}}</td>
+
+            <td>{{p.product.calories100g * p.product.onePortionG / 100}}</td>
+
+            <td>{{p.product.proteins}}</td>
+            <td>{{p.product.fats}}</td>
+            <td>{{p.product.carbohydrates}}</td>
+
+            <td>{{p.product.proteins}}</td>
+            <td>{{p.product.fats}}</td>
+            <td>{{p.product.carbohydrates}}</td>
+
+        </tr>
+        <tr class="my-tr">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{portion?.portionGroup?.portionGramm}}</td>
+            <td></td>
+            <td>{{portion?.portionGroup?.calories}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="my-tr">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{portion?.portionGroup?.caloriesPorcent}} %</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+
+</table>

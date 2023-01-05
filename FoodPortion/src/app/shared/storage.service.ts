@@ -7,6 +7,19 @@ import { inner_param } from './const';
   providedIn: 'root'
 })
 export class StorageService {
+  
+  
+  
+  existsMain(products: IProduct[]):boolean {
+    for (let index = 0; index < products.length; index++) {
+      const product = products[index];
+      if (product.isMain) {
+        return true;
+      }
+    }
+    
+    return false;
+  }
   clear() {
     localStorage.removeItem('params');
   }

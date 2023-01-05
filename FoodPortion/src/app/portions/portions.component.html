@@ -26,9 +26,7 @@
 
         <div class="my-sep"></div>
 
-        <button class="btn btn-primary my-inline" style="width: 320px;" (click)="generate()">Сгенерировать
-            раскладку</button>
-
+        <button class="btn btn-primary my-inline" style="width: 320px;" (click)="generate()">Сгенерировать раскладку</button>
 
         <div class="my-sep"></div>
 
@@ -37,67 +35,19 @@
             <p>День: {{portion.day}}</p>
 
             <p><b>Завтрак</b></p>
+            <app-portion-table [portion]="portion.portion1"></app-portion-table>
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Продукты</th>
-                        <th>Кол-во, гр/чел</th>
-                        <th>Калорийность, ккал/100гр</th>
-                        <th>Калорийность порции</th>
-                        <th>белки (%)</th>
-                        <th>жиры (%)</th>
-                        <th>Углеводы (%)</th>
-                        <th>белки (г)</th>
-                        <th>жиры (г)</th>
-                        <th>углеводы (г)</th>
-                    </tr>
-                </thead>
 
-                <tbody>
-                    <tr *ngFor="let p of portion.portion1List" class="my-tr">
-                        <td>{{p.product.name}}</td>
-                        <td>{{p.product.onePortionG}}</td>
-                        <td>{{p.product.calories100g}}</td>
+            <p><b>Обед</b></p>
+            <app-portion-table [portion]="portion.portion2"></app-portion-table>
 
-                        <td>{{p.product.calories100g * p.product.onePortionG / 100}}</td>
 
-                        <td>{{p.product.proteins}}</td>
-                        <td>{{p.product.fats}}</td>
-                        <td>{{p.product.carbohydrates}}</td>
+            <p><b>Ужин</b></p>
+            <app-portion-table [portion]="portion.portion3"></app-portion-table>
 
-                        <td>{{p.product.proteins}}</td>
-                        <td>{{p.product.fats}}</td>
-                        <td>{{p.product.carbohydrates}}</td>
-
-                    </tr>
-                    <tr class="my-tr">
-                        <td></td>
-                        <td>{{portion.portion1Group?.portionGramm}}</td>
-                        <td></td>
-                        <td>{{portion.portion1Group?.calories}}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="my-tr">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>{{portion.portion1Group?.caloriesPorcent}} %</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-
-            </table>
+            <p><b>Перекус</b></p>
+            <app-portion-table [portion]="portion.portion4"></app-portion-table>
+            
         </div>
 
     </div>

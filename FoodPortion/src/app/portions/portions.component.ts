@@ -1,33 +1,10 @@
 import { Component } from '@angular/core';
+import { IPortion } from '../shared/IPortion';
+import { IPortionDay } from '../shared/IPortionDay';
+import { IPortionGroup } from '../shared/IPortionGroup';
+import { IPortionPart } from '../shared/IPortionPart';
 import { IProduct as IProduct } from '../shared/IProduct';
 import { StorageService } from '../shared/storage.service';
-
-
-interface IPortion {
-  product: IProduct
-}
-
-interface IPortionGroup {
-  portionGramm: number;
-  calories: number;
-  caloriesPorcent: number;
-}
-
-interface IPortionDay {
-
-  day: string;
-  portion1List: IPortion[]
-  portion1Group?: IPortionGroup
-
-  portion2List: IPortion[]
-  portion2Group?: IPortionGroup
-
-  portion3List: IPortion[]
-  portion3Group?: IPortionGroup
-
-  portion4List: IPortion[]
-  portion4Group?: IPortionGroup
-}
 
 
 @Component({
@@ -36,18 +13,16 @@ interface IPortionDay {
 })
 export class PortionsComponent {
 
-
   portionList: IPortionDay[] = [
     {
       day: '01',
-      portion1List: [
-        {
-          product: { id: 4, name: 'Колбаса с/к', proteins: 20, fats: 40, carbohydrates: 0, calories100g: 430, onePortionG: 55, isMain: true, types: 'з,п' },
-        }
-      ],
-      portion2List: [],
-      portion3List: [],
-      portion4List: [],
+      portion1: {
+        portionList: [
+          {
+            product: { id: 4, name: 'Колбаса с/к', proteins: 20, fats: 40, carbohydrates: 0, calories100g: 430, onePortionG: 55, isMain: true, types: 'з,п' },
+          }
+        ],
+      }
     }
   ]
 
@@ -56,11 +31,8 @@ export class PortionsComponent {
     for (let index = 0; index < this.portionList.length; index++) {
       const portion = this.portionList[index];
 
-      if (portion.portion1Group == null) {
-        portion.portion1Group = this.getGroupPortion(portion.portion1List);
-        portion.portion2Group = this.getGroupPortion(portion.portion2List);
-        portion.portion3Group = this.getGroupPortion(portion.portion3List);
-        portion.portion4Group = this.getGroupPortion(portion.portion4List);
+      if (portion.portion1?.portionGroup == null) {
+        portion.portion1.portionGroup = this.getGroupPortion(portion.portion1.portionList);
       }
 
     }
@@ -94,21 +66,112 @@ export class PortionsComponent {
 
       let portion = <IPortionDay>{
         day: (index + 1).toString(),
-        portion1List: this.getPortions('з'),
-        portion2List: this.getPortions('о'),
-        portion3List: this.getPortions('у'),
-        portion4List: this.getPortions('п'),
+        portion1: this.getPortions('з'),
+        portion2: this.getPortions('о'),
+        portion3: this.getPortions('у'),
+        portion4: this.getPortions('п'),
       };
-
-      portion.portion1Group = this.getGroupPortion(portion.portion1List);
-      portion.portion2Group = this.getGroupPortion(portion.portion2List);
-      portion.portion3Group = this.getGroupPortion(portion.portion3List);
-      portion.portion4Group = this.getGroupPortion(portion.portion4List);
 
       this.portionList.push(portion);
     }
   }
-  getPortions(type: string): IPortion[] {
-    throw new Error('Method not implemented.');
+
+  getProductByType(type: string, products: IProduct[]): IProduct[] {
+
+    let results = new Array<IProduct>();
+
+    for (let index = 0; index < products.length; index++) {
+      const product = products[index];
+      if (product.types.includes(type)) {
+        results.push(product);
+      }
+    }
+
+    return results;
+
+  }
+
+  getRandomInt(max: number): number {
+    return Math.floor(Math.random() * max);
+  }
+
+  getPortions(type: string): IPortionPart {
+
+    let portionPart = <IPortionPart>{};
+
+    let portions = new Array<IPortion>();
+
+    let products = this.getProductByType(type, this.storageService.params.products);
+
+    console.log('products', type, products);
+
+    var max_call = 0;
+
+    if (type == 'з') {
+      max_call = this.storageService.params.call * this.storageService.params.portion1 / 100;
+    } else if (type == 'о') {
+      max_call = this.storageService.params.call * this.storageService.params.portion2 / 100;
+    } if (type == 'у') {
+      max_call = this.storageService.params.call * this.storageService.params.portion3 / 100;
+    } if (type == 'п') {
+      max_call = this.storageService.params.call * this.storageService.params.portion4 / 100;
+    }
+    console.log('max_call', max_call);
+
+    let max_iteration = 50;
+
+    let index = this.getRandomInt(products.length);
+
+    let g = <IPortionGroup>{
+      calories: 0,
+      caloriesPorcent: 0,
+      portionGramm: 0
+    };
+
+    let accuracy = 50; //погрешность вычисления, точность
+
+    while (Math.abs(max_call - g.calories) > accuracy && max_iteration > 0) {
+      index = this.getRandomInt(products.length);
+      let product = products[index];
+
+      if (!product.isMain && portions.length == 0) {
+        continue;
+      }
+
+
+      max_iteration--;
+
+      if (this.storageService.existsId(product.id, portions.map(c => c.product))) {
+        continue;
+      }
+
+      if (product.isMain && this.storageService.existsMain(portions.map(c => c.product))) {
+        continue;
+      }
+
+
+      let new_calories = g.calories + product.calories100g * product.onePortionG / 100;
+      if ((max_call - new_calories) < -accuracy) {
+        continue;
+      }
+
+
+      portions.push(<IPortion>{
+        product: product
+      });
+
+      g.calories += product.calories100g * product.onePortionG / 100;
+      g.caloriesPorcent = +(g.calories * 100 / this.storageService.params.call).toFixed(2);
+      g.portionGramm += product.onePortionG;
+    }
+
+    portionPart.portionList = portions;
+    portionPart.portionGroup = g;
+
+    console.log('max_iteration', max_iteration);
+    console.log('g.calories', g.calories);
+    console.log('max_call - g.calories', max_call - g.calories);
+
+    return portionPart;
   }
 }
