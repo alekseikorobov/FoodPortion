@@ -1,0 +1,35 @@
+.my-inline{
+    width: 100px;
+    display: inline;
+}
+
+.my-td-w{
+    width: 200px;
+}
+
+.my-pad-top{
+    padding-top: 50px;
+}
+
+.my-margin-lr{
+    margin: 0px 10px 0px 10px;
+    
+}
+
+.my-sep{
+    margin: 10px;
+    padding: 10px;
+    height: 30px;
+}
+.my-tr>td{
+    padding: 0px;
+}
+
+.my-tr>td>input{
+    height: 27px;
+    border-radius: 0px;
+    border: white;
+}
+.my-tr>td>input:focus{
+    box-shadow: none;
+}

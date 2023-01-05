@@ -1,0 +1,104 @@
+<div class="container">
+
+
+
+    <div class="row my-pad-top">
+        <a routerLink="/settings" routerLinkActive="active" ariaCurrentWhenActive="page">Перейти в настройки</a>
+
+        <table class="my-margin-lr">
+            <tr>
+                <td class="my-td-w">
+                    Количество дней
+                </td>
+                <td>
+                    <input type="number" [(ngModel)]="days" class="form-control my-inline" />
+                </td>
+            </tr>
+            <tr>
+                <td class="my-td-w">
+                    Количество человек
+                </td>
+                <td>
+                    <input class="form-control my-inline" type="number" [(ngModel)]="countPeoples" />
+                </td>
+            </tr>
+        </table>
+
+        <div class="my-sep"></div>
+
+        <button class="btn btn-primary my-inline" style="width: 320px;" (click)="generate()">Сгенерировать
+            раскладку</button>
+
+
+        <div class="my-sep"></div>
+
+        <div *ngFor="let portion of portionList">
+
+            <p>День: {{portion.day}}</p>
+
+            <p><b>Завтрак</b></p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Продукты</th>
+                        <th>Кол-во, гр/чел</th>
+                        <th>Калорийность, ккал/100гр</th>
+                        <th>Калорийность порции</th>
+                        <th>белки (%)</th>
+                        <th>жиры (%)</th>
+                        <th>Углеводы (%)</th>
+                        <th>белки (г)</th>
+                        <th>жиры (г)</th>
+                        <th>углеводы (г)</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let p of portion.portion1List" class="my-tr">
+                        <td>{{p.product.name}}</td>
+                        <td>{{p.product.onePortionG}}</td>
+                        <td>{{p.product.calories100g}}</td>
+
+                        <td>{{p.product.calories100g * p.product.onePortionG / 100}}</td>
+
+                        <td>{{p.product.proteins}}</td>
+                        <td>{{p.product.fats}}</td>
+                        <td>{{p.product.carbohydrates}}</td>
+
+                        <td>{{p.product.proteins}}</td>
+                        <td>{{p.product.fats}}</td>
+                        <td>{{p.product.carbohydrates}}</td>
+
+                    </tr>
+                    <tr class="my-tr">
+                        <td></td>
+                        <td>{{portion.portion1Group?.portionGramm}}</td>
+                        <td></td>
+                        <td>{{portion.portion1Group?.calories}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="my-tr">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{portion.portion1Group?.caloriesPorcent}} %</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+</div>

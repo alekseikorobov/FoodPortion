@@ -1,0 +1,125 @@
+
+<div class="container">
+
+    
+    <div class="row my-pad-top">
+        
+        <a routerLink="/portions" routerLinkActive="active" ariaCurrentWhenActive="page">Перейти на раскладку</a>
+        
+        <table class="my-margin-lr">
+            <tr>
+                <td class="my-td-w">
+                    Колорий на день
+                </td>
+                <td>
+                    <input type="number" [(ngModel)]="params.call" class="form-control my-inline" /> 
+                    <!-- - <input type="number" [(ngModel)]="params.max_call" class="form-control my-inline"/> -->
+                </td>
+            </tr>
+            <tr class="my-sep">
+            </tr>
+            <tr>
+                <td class="my-td-w">
+                    Завтрак (%)
+                </td>
+                <td>
+                    <input class="form-control my-inline" type="number" [(ngModel)]="params.portion1" />
+                </td>
+            </tr>
+            <tr>
+                <td>Обед (%)</td>
+                <td>
+                    <input class="form-control my-inline" type="number" [(ngModel)]="params.portion2" />
+                </td>
+            </tr>
+            <tr>
+                <td class="my-td-w">
+                    Ужин (%)
+                </td>
+                <td>
+                    <input class="form-control my-inline" type="number" [(ngModel)]="params.portion3" />
+                </td>
+            </tr>
+            <tr>
+                <td>Перекус (%)</td>
+                <td>
+                    <input class="form-control my-inline" type="number" [(ngModel)]="params.portion4" />
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Общее</b></td>
+                <td><b>{{params.portion1 + params.portion2 + params.portion3 + params.portion4}}%</b></td>
+            </tr>
+
+            <tr class="my-sep"></tr>
+
+            <tr>
+                <td>БЖУ</td>
+                <td>
+                    <input class="form-control my-inline" type="text" [(ngModel)]="params.portion_bzu" />
+                </td>
+            </tr>
+        </table>
+
+        
+<div class="my-sep"></div>
+
+        <table class="table">
+            <colgroup>
+                <col style="width: auto;"  />
+                <col style="width: 100px;"  />
+                <col style="width: 100px;"  />
+                <col style="width: 100px;"  />
+                <col style="width: 150px;"  />
+                <col style="width: 100px;"  />
+                <col style="width: 100px;"  />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Наименование продукта</th>
+                    <th>Основное блюдо</th>
+                    <th>Для<br>(з о у п)</th>
+                    <th>белки</th>
+                    <th>жиры</th>
+                    <th>углеводы</th>
+                    <th>Ккал в 100 г</th>
+                    <th>на 1 раз г.</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of params.products" class="my-tr">                    
+                    <td><input class="form-control" type="text" [(ngModel)]="p.name" /></td>
+                    <td>
+                        <input type="checkbox" [(ngModel)]="p.isMain"/>
+                        <!-- <input class="form-control" type="checkbox" /> -->
+                    </td>
+                    <td><input class="form-control" type="text" [(ngModel)]="p.types" /></td>
+                    <td><input class="form-control" type="number" [(ngModel)]="p.proteins" /></td>
+                    <td><input class="form-control" type="number" [(ngModel)]="p.fats" /></td>
+                    <td><input class="form-control" type="number" [(ngModel)]="p.carbohydrates" /></td>
+                    <td><input class="form-control" type="number" [(ngModel)]="p.calories100g" /></td>
+                    <td><input class="form-control" type="number" [(ngModel)]="p.onePortionG" /></td>
+                    <td>
+                        <a href="#" (click)="deleteRow(p)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="#" (click)="addRow()">Add row</a>
+        
+        <div class="my-sep"></div>
+        
+        
+        <button class="btn btn-primary my-inline" (click)="save()" >Save</button>
+        <span class="my-inline" style="text-align: center;padding: 5px;"> {{textSaved}}</span>
+
+        
+        
+        
+        <button class="btn btn-primary my-inline" (click)="clear()" >Clear</button>
+        <span class="my-inline" style="text-align: center;padding: 5px;">{{textCleared}}</span>
+        
+    </div>
+</div>
