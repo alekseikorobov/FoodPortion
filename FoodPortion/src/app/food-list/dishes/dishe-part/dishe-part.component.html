@@ -1,0 +1,80 @@
+
+
+<div *ngFor="let dishe of dishesPortion" class="my-dishe-block">
+    <div class="row">
+        <div class="col-10">
+            <input class="form-control" type="text" [(ngModel)]="dishe.name" />
+        </div>
+        <div class="col-2">
+            <a href="#" (click)="deleteDishe(dishe)">Удалить блюдо</a>
+        </div>
+    </div>
+
+    <table class="table">
+        <colgroup>
+            <col style="width: auto;" />
+            <col style="width: 100px;" />
+            <col style="width: 100px;" />
+            <col style="width: 150px;" />
+            <col style="width: 150px;" />
+            <col style="width: 150px;" />
+            <col style="width: 100px;" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Продукта</th>
+                <th>белки</th>
+                <th>жиры</th>
+                <th>углеводы</th>
+                <th>Ккал в 100 г</th>
+                <th>Ккал в порции</th>
+                <th>порции г.</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of dishe.portionPart.portionList" class="my-tr">
+                <td>{{p.product!.name}}</td>
+                <td>{{p.product!.proteins}}</td>
+                <td>{{p.product!.fats}}</td>
+                <td>{{p.product!.carbohydrates}}</td>
+                <td>{{p.product!.calories100g}}</td>
+                <td>{{p.product!.calories100g * p.product!.onePortionG / 100}}</td>
+                <td>{{p.product!.onePortionG}}</td>
+                <td>
+                    <a href="#" (click)="deleteRow(dishe, p.product!)">Удалить</a>
+                </td>
+            </tr>
+            <tr class="my-tr">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b>{{dishe.portionPart!.portionGroup!.calories}}</b></td>
+                <td><b>{{dishe.portionPart!.portionGroup!.portionGramm}}</b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>                
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="dropdown">
+        <a class="dropdown-toggle" type="button" id="dropdownMenuButton1" href="#" data-bs-toggle="dropdown"
+            aria-expanded="false" (click)="toggleMenu(dishe)">
+            Добавить продукт
+        </a>
+        <ul class="dropdown-menu my-dropdown-size" aria-labelledby="dropdownMenuButton1">
+            <li *ngFor="let product of products_part">
+                <a class="dropdown-item" href="#" (click)="addProduct(dishe,product)">{{product.name}} ({{product.calories100g * product.onePortionG / 100}} Ккал)</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<div class="row my-add-dishe">
+    <a href="#" (click)="addDishe()" >Добавить блюдо</a>
+</div>

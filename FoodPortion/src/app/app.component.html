@@ -1,2 +1,19 @@
+<div class="container">
 
-<router-outlet></router-outlet>
+    <div class="row my-pad-top">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a routerLink="/settings" class="nav-link" routerLinkActive="active"
+                    ariaCurrentWhenActive="page">Настройки</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/portions" class="nav-link" routerLinkActive="active"
+                    ariaCurrentWhenActive="page">Раскладка</a>
+            </li>
+        </ul>
+
+        <router-outlet></router-outlet>
+
+    </div>
+
+</div>

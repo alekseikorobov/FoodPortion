@@ -1,54 +1,50 @@
-<div class="container">
+<div class="row my-pad-top">
+    <!-- <a routerLink="/settings" routerLinkActive="active" ariaCurrentWhenActive="page">Перейти в настройки</a> -->
+
+    <table class="my-margin-lr">
+        <tr>
+            <td class="my-td-w">
+                Количество дней
+            </td>
+            <td>
+                <input type="number" [(ngModel)]="days" class="form-control my-inline" />
+            </td>
+        </tr>
+        <tr>
+            <td class="my-td-w">
+                Количество человек
+            </td>
+            <td>
+                <input class="form-control my-inline" type="number" [(ngModel)]="countPeoples" />
+            </td>
+        </tr>
+    </table>
+
+    <div class="my-sep"></div>
+
+    <button class="btn btn-primary my-inline" style="width: 320px;" (click)="generate()">Сгенерировать
+        раскладку</button>
+
+    <div class="my-sep"></div>
+
+    <div *ngFor="let portion of portionList">
+
+        <p>День: {{portion.day}}</p>
+
+        <p><b>Завтрак</b> ({{params.portion1}}%)</p>
+        <app-portion-table [portion]="portion.portion1"></app-portion-table>
 
 
-
-    <div class="row my-pad-top">
-        <a routerLink="/settings" routerLinkActive="active" ariaCurrentWhenActive="page">Перейти в настройки</a>
-
-        <table class="my-margin-lr">
-            <tr>
-                <td class="my-td-w">
-                    Количество дней
-                </td>
-                <td>
-                    <input type="number" [(ngModel)]="days" class="form-control my-inline" />
-                </td>
-            </tr>
-            <tr>
-                <td class="my-td-w">
-                    Количество человек
-                </td>
-                <td>
-                    <input class="form-control my-inline" type="number" [(ngModel)]="countPeoples" />
-                </td>
-            </tr>
-        </table>
-
-        <div class="my-sep"></div>
-
-        <button class="btn btn-primary my-inline" style="width: 320px;" (click)="generate()">Сгенерировать раскладку</button>
-
-        <div class="my-sep"></div>
-
-        <div *ngFor="let portion of portionList">
-
-            <p>День: {{portion.day}}</p>
-
-            <p><b>Завтрак</b></p>
-            <app-portion-table [portion]="portion.portion1"></app-portion-table>
+        <p><b>Обед</b> ({{params.portion2}}%)</p>
+        <app-portion-table [portion]="portion.portion2"></app-portion-table>
 
 
-            <p><b>Обед</b></p>
-            <app-portion-table [portion]="portion.portion2"></app-portion-table>
+        <p><b>Ужин</b> ({{params.portion3}}%)</p>
+        <app-portion-table [portion]="portion.portion3"></app-portion-table>
 
-
-            <p><b>Ужин</b></p>
-            <app-portion-table [portion]="portion.portion3"></app-portion-table>
-
-            <p><b>Перекус</b></p>
-            <app-portion-table [portion]="portion.portion4"></app-portion-table>
-            
-        </div>
+        <p><b>Перекус</b> ({{params.portion4}}%)</p>
+        <app-portion-table [portion]="portion.portion4"></app-portion-table>
 
     </div>
+
 </div>

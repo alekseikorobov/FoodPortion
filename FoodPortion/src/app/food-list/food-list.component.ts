@@ -1,7 +1,6 @@
 import { Component, Directive, Input, OnDestroy, OnInit } from '@angular/core';
 import { StorageService } from '../shared/storage.service';
-import { IParams } from '../shared/IParams';
-import { IProduct } from '../shared/IProduct';
+import { IParams } from '../shared/models';
 
 @Component({
   selector: 'app-food-list',
@@ -17,25 +16,7 @@ export class FoodListComponent  {
     return this.storageService.params;
   }  
 
-  deleteRow(p: IProduct) {
-    this.storageService.deleteProduct(p.id);
-    return false;
-  }
-
-  addRow() {
-    this.storageService.addProduct({
-      id: 1,
-      name: "",
-      proteins: 0,
-      fats: 0,
-      carbohydrates: 0,
-      calories100g: 0,
-      onePortionG: 0,
-      isMain:true,
-      types:'з,о,у,п'
-    });
-    return false;
-  }
+  
 
 
   textSaved = '';

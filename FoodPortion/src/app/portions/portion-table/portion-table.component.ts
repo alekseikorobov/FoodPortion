@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IPortionPart } from 'src/app/shared/IPortionPart';
+import { IPortionPart } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-portion-table',

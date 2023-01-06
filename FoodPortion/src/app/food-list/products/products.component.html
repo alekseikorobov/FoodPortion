@@ -1,0 +1,45 @@
+
+
+<table class="table">
+    <colgroup>
+        <col style="width: auto;" />
+        <col style="width: 100px;" />
+        <col style="width: 100px;" />
+        <col style="width: 100px;" />
+        <col style="width: 150px;" />
+        <col style="width: 100px;" />
+        <col style="width: 100px;" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>Продукт</th>
+            <th>Основное блюдо</th>
+            <th>Для<br>(з о у п)</th>
+            <th>белки</th>
+            <th>жиры</th>
+            <th>углеводы</th>
+            <th>Ккал в 100 г</th>
+            <th>на 1 раз г.</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of params.products" class="my-tr">
+            <td><input class="form-control" type="text" [(ngModel)]="p.name" /></td>
+            <td>
+                <input type="checkbox" [(ngModel)]="p.isMain" />
+                <!-- <input class="form-control" type="checkbox" /> -->
+            </td>
+            <td><input class="form-control" type="text" [(ngModel)]="p.types" /></td>
+            <td><input class="form-control" type="number" [(ngModel)]="p.proteins" /></td>
+            <td><input class="form-control" type="number" [(ngModel)]="p.fats" /></td>
+            <td><input class="form-control" type="number" [(ngModel)]="p.carbohydrates" /></td>
+            <td><input class="form-control" type="number" [(ngModel)]="p.calories100g" /></td>
+            <td><input class="form-control" type="number" [(ngModel)]="p.onePortionG" /></td>
+            <td>
+                <a href="#" (click)="deleteRow(p)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a href="#" (click)="addRow()">Add row</a>

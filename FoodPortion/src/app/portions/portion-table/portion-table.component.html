@@ -1,9 +1,19 @@
 <table class="table">
+    <colgroup>
+        <col style="width: auto;"  />
+        <col style="width: 100px;"  />
+        <col style="width: 150px;"  />
+        <col style="width: 100px;"  />
+        <col style="width: 100px;"  />
+        <col style="width: 100px;"  />
+        <col style="width: 100px;"  />
+        <col style="width: 100px;"  />
+        <col style="width: 100px;"  />
+        <col style="width: 100px;"  />
+    </colgroup>
     <thead>
         <tr>
             <th>Продукты</th>
-            <th>Тип</th>
-            <th>Основное</th>
             <th>Кол-во, гр/чел</th>
             <th>Калорийность, ккал/100гр</th>
             <th>Калорийность порции</th>
@@ -18,44 +28,42 @@
 
     <tbody>
         <tr *ngFor="let p of portion?.portionList" class="my-tr">
-            <td>{{p.product.name}}</td>
-            <td>{{p.product.types}}</td>
-            <td>{{p.product.isMain}}</td>
-            <td>{{p.product.onePortionG}}</td>
-            <td>{{p.product.calories100g}}</td>
+            <td>{{p.product?.name}}</td>
+            <td>{{p.product?.onePortionG}}</td>
+            <td>{{p.product?.calories100g}}</td>
 
-            <td>{{p.product.calories100g * p.product.onePortionG / 100}}</td>
+            <td>
+                <span *ngIf="p.product">
+                    {{p.product.calories100g * p.product.onePortionG / 100}}
+                </span>
+            </td>
 
-            <td>{{p.product.proteins}}</td>
-            <td>{{p.product.fats}}</td>
-            <td>{{p.product.carbohydrates}}</td>
+            <td>{{p.product?.proteins}}</td>
+            <td>{{p.product?.fats}}</td>
+            <td>{{p.product?.carbohydrates}}</td>
 
-            <td>{{p.product.proteins}}</td>
-            <td>{{p.product.fats}}</td>
-            <td>{{p.product.carbohydrates}}</td>
+            <td>{{p.product?.proteins}}</td>
+            <td>{{p.product?.fats}}</td>
+            <td>{{p.product?.carbohydrates}}</td>
 
+        </tr>
+        <tr class="my-tr">
+            <td></td>
+            <td><b>{{portion?.portionGroup?.portionGramm}}</b></td>
+            <td></td>
+            <td><b>{{portion?.portionGroup?.calories}}</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr class="my-tr">
             <td></td>
             <td></td>
             <td></td>
-            <td>{{portion?.portionGroup?.portionGramm}}</td>
-            <td></td>
-            <td>{{portion?.portionGroup?.calories}}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr class="my-tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>{{portion?.portionGroup?.caloriesPorcent}} %</td>
+            <td><b>{{portion?.portionGroup?.caloriesPorcent}} %</b></td>
             <td></td>
             <td></td>
             <td></td>
