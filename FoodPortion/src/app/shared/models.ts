@@ -34,9 +34,9 @@ export interface IPortionGroup {
 export interface IPortionDay {
     day: string;
     portion1: IPortionPart; //завтрак
-    portion2?: IPortionPart; //обед
-    portion3?: IPortionPart; //ужин
-    portion4?: IPortionPart; //перекус
+    portion2: IPortionPart; //обед
+    portion3: IPortionPart; //ужин
+    portion4: IPortionPart; //перекус
 }
 
 export interface IPortion {
