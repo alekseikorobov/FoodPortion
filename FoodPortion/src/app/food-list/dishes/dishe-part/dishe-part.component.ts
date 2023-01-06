@@ -22,7 +22,6 @@ export class DishePartComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    console.log('ngOnInit');
     for (let index = 0; index < this.dishesPortion.length; index++) {
       const dishesPortion = this.dishesPortion[index];
       dishesPortion.portionPart.portionGroup = this.storageService.getGroupPortion(dishesPortion.portionPart.portionList);
@@ -100,15 +99,8 @@ export class DishePartComponent implements OnInit {
   addDishe() {
 
     let dishe = <IDishe>{};
-
-    let id = -1;
-
-    while (this.getIndexDisheById(id, this.dishesPortion) != -1) {
-      id -= 1;
-    }
-
+    let id = this.storageService.getMaxId(this.dishesPortion) + 1;
     dishe.id = id;
-
     dishe.portionPart = { portionList: [] }
     dishe.isShow = true;
     dishe.portionPart.portionGroup = this.storageService.getGroupPortion(dishe.portionPart.portionList);

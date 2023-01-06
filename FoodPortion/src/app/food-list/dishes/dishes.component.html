@@ -5,18 +5,13 @@
     </div>
 
     <div class="my-dishe-container">
-        <div class="my-dishe-title">Обед</div>
+        <div class="my-dishe-title">Обед / Ужин</div>
         <app-dishe-part *ngIf="disheAll.dishesPortion2" [dishes]="disheAll.dishesPortion2" type="о"></app-dishe-part>
-
     </div>
 
-    <div class="my-dishe-container">
-        <div class="my-dishe-title">Ужин</div>
-        <app-dishe-part *ngIf="disheAll.dishesPortion3" [dishes]="disheAll.dishesPortion3" type="у"></app-dishe-part>
-    </div>
     <div class="my-dishe-container">
         <div class="my-dishe-title">Перекус</div>
-        <app-dishe-part *ngIf="disheAll.dishesPortion4" [dishes]="disheAll.dishesPortion4" type="п"></app-dishe-part>
+        <app-dishe-part *ngIf="disheAll.dishesPortion3" [dishes]="disheAll.dishesPortion3" type="п"></app-dishe-part>
     </div>
 
 </div>

@@ -5,10 +5,9 @@ export interface IDishe extends IId {
 }
 
 export interface IDisheAll {
-    dishesPortion1: IDishe[]
-    dishesPortion2: IDishe[]
-    dishesPortion3: IDishe[]
-    dishesPortion4: IDishe[]
+    dishesPortion1: IDishe[] //завтрак
+    dishesPortion2: IDishe[] //обед / ужин
+    dishesPortion3: IDishe[] //перекус
 }
 export interface IId {
     id: number;
@@ -16,7 +15,7 @@ export interface IId {
 export interface IProduct extends IId {
     name: string;
     isMain: boolean;
-    types: string;
+    types: string; //з,о,у,п
     proteins: number;
     fats: number;
     carbohydrates: number;
@@ -34,10 +33,10 @@ export interface IPortionGroup {
 }
 export interface IPortionDay {
     day: string;
-    portion1: IPortionPart;
-    portion2?: IPortionPart;
-    portion3?: IPortionPart;
-    portion4?: IPortionPart;
+    portion1: IPortionPart; //завтрак
+    portion2?: IPortionPart; //обед
+    portion3?: IPortionPart; //ужин
+    portion4?: IPortionPart; //перекус
 }
 
 export interface IPortion {
@@ -47,9 +46,9 @@ export interface IPortion {
 export interface IParams {
     products: IProduct[];
     call: number;
-    portion1: number;
-    portion2: number;
-    portion3: number;
-    portion4: number;
+    portion1: number; //завтрак (%)
+    portion2: number; //обед (%)
+    portion3: number; //ужин (%)
+    portion4: number; //перекус (%)
     portion_bzu: string;
 }

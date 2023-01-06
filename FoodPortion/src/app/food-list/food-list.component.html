@@ -2,6 +2,14 @@
 
     <!-- <a routerLink="/portions" routerLinkActive="active" ariaCurrentWhenActive="page">Перейти на раскладку</a> -->
 
+    <button class="btn btn-primary my-inline" (click)="save()">Save</button>
+    <span class="my-inline" style="text-align: center;padding: 5px;"> {{textSaved}}</span>
+
+    <button class="btn btn-primary my-inline" (click)="clear()">Clear</button>
+    <span class="my-inline" style="text-align: center;padding: 5px;">{{textCleared}}</span>
+    
+    <div class="my-sep"></div>
+
     <div class="row">
         <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -24,16 +32,9 @@
 
     
 
-    <div class="my-sep"></div>
+    
 
 
-    <button class="btn btn-primary my-inline" (click)="save()">Save</button>
-    <span class="my-inline" style="text-align: center;padding: 5px;"> {{textSaved}}</span>
-
-
-
-
-    <button class="btn btn-primary my-inline" (click)="clear()">Clear</button>
-    <span class="my-inline" style="text-align: center;padding: 5px;">{{textCleared}}</span>
+    
 
 </div>

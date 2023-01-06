@@ -77,15 +77,12 @@ export class PortionsComponent {
     if (type == 'з') {
       dishes = this.storageService.disheAll.dishesPortion1;
       max_call = this.params.call * this.params.portion1 / 100;
-    } else if (type == 'о') {
+    } else if (type == 'о' || type == 'у') {
       dishes = this.storageService.disheAll.dishesPortion2;
       max_call = this.params.call * this.params.portion2 / 100;
-    } if (type == 'у') {
+    } if (type == 'п') {
       dishes = this.storageService.disheAll.dishesPortion3;
       max_call = this.params.call * this.params.portion3 / 100;
-    } if (type == 'п') {
-      dishes = this.storageService.disheAll.dishesPortion4;
-      max_call = this.params.call * this.params.portion4 / 100;
     }
 
     let max_iteration = 50;

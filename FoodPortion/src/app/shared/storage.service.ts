@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { inner_param, inner_disheAll } from './const';
-import { IDishe, IDisheAll, IProduct,IId,IParams,IPortion,IPortionGroup } from './models';
+import { IDishe, IDisheAll, IProduct, IId, IParams, IPortion, IPortionGroup } from './models';
 
 @Injectable({
   providedIn: 'root'
@@ -30,9 +30,6 @@ export class StorageService {
     this.initProductPart(inner_disheAll.dishesPortion1);
     this.initProductPart(inner_disheAll.dishesPortion2);
     this.initProductPart(inner_disheAll.dishesPortion3);
-    this.initProductPart(inner_disheAll.dishesPortion4);
-
-    console.log('inner_disheAll', inner_disheAll);
 
     return inner_disheAll;
 
@@ -46,7 +43,6 @@ export class StorageService {
         portion.product = this.getProductById(portion.productId!);
       }
       dishesPortion.portionPart.portionGroup = this.getGroupPortion(dishesPortion.portionPart.portionList);
-      console.log('dishesPortion.portionPart.portionGroup',dishesPortion.portionPart.portionGroup);
     }
   }
 
@@ -122,17 +118,18 @@ export class StorageService {
     return false;
   }
 
+  getMaxId(items: IId[]): number {
+    let maxId = 0;
+    for (let index = 0; index < items.length; index++) {
+      maxId = Math.max(maxId, items[index].id);
+    }
+    return maxId;
+  }
+
   addProduct(product: IProduct) {
 
-    let id = -1;
-
-    while (this.existsId(id, this._param.products)) {
-      id -= 1;
-    }
-
+    let id = this.getMaxId(this._param.products) + 1;
     product.id = id;
-
-
     this._param.products.push(product);
   }
 

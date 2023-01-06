@@ -24,7 +24,10 @@ export class FoodListComponent  {
 
     this.storageService.save();
 
-    
+    console.log('DisheAll');
+    console.dir(JSON.stringify(this.storageService.disheAll));    
+    console.log('Params');
+    console.dir(JSON.stringify(this.storageService.params));
 
 
     this.textSaved = 'Saved';

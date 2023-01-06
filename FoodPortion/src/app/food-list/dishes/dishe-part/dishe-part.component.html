@@ -9,8 +9,8 @@
 
     <div class="col-3"><input class="form-control my-inline-input-with-border" type="text" [(ngModel)]="dishe.name" />
     </div>
-    <div class="col-3"><b>{{dishe.portionPart?.portionGroup?.calories}}</b></div>
-    <div class="col-3"><b>{{dishe.portionPart?.portionGroup?.portionGramm}}</b></div>
+    <div class="col-3"><b>{{dishe.portionPart!.portionGroup!.calories}}</b></div>
+    <div class="col-3"><b>{{dishe.portionPart!.portionGroup!.portionGramm}}</b></div>
     <div class="col-3">
         <a href="#" (click)="deleteDishe(dishe)">Удалить блюдо</a>&nbsp;&nbsp;
         <a href="#" (click)="showProducts(dishe)">
