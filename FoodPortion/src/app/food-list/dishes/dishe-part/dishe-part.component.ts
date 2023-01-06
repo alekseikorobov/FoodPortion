@@ -18,7 +18,7 @@ export class DishePartComponent implements OnInit {
   @Input('type') type!: string;
 
   constructor(private storageService: StorageService) {
-   
+
 
   }
   ngOnInit(): void {
@@ -36,6 +36,7 @@ export class DishePartComponent implements OnInit {
 
     if (index > -1) {
       dishe.portionPart.portionList.splice(index, 1);
+      dishe.portionPart.portionGroup = this.storageService.getGroupPortion(dishe.portionPart.portionList);
     }
 
     return false;
@@ -51,6 +52,17 @@ export class DishePartComponent implements OnInit {
     if (this.products_part.length == 0) {
       this.products_part = this.storageService.getProductByType(this.type, this.params.products);
     }
+    return false;
+  }
+
+  showProducts(dishe: IDishe) {
+    if (!dishe.isShow) {
+      dishe.isShow = true;
+    }
+    else {
+      dishe.isShow = false;
+    }
+
     return false;
   }
 
@@ -98,6 +110,8 @@ export class DishePartComponent implements OnInit {
     dishe.id = id;
 
     dishe.portionPart = { portionList: [] }
+    dishe.isShow = true;
+    dishe.portionPart.portionGroup = this.storageService.getGroupPortion(dishe.portionPart.portionList);
 
     this.dishesPortion.push(dishe);
 

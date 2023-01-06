@@ -1,62 +1,91 @@
-.my-inline{
+.my-inline {
     width: 100px;
     display: inline;
 }
 
-.my-td-w{
+.my-td-w {
     width: 200px;
 }
 
-.my-pad-top{
+.my-pad-top {
     padding-top: 50px;
 }
 
-.my-margin-lr{
+.my-margin-lr {
     margin: 0px 10px 0px 10px;
-    
+
 }
 
-.my-sep{
+.my-sep {
     margin: 10px;
     padding: 10px;
     height: 30px;
 }
-.my-tr>td{
+
+.my-tr>td {
     padding: 0px;
 }
 
-.my-tr>td>input{
+.my-inline-input {
     height: 27px;
     border-radius: 0px;
     border: white;
 }
-.my-tr>td>input:focus{
+
+.my-inline-input:focus {
+    box-shadow: none;
+}
+
+.my-inline-input-with-border {
+    height: 29px;
+    /* border-radius: 0px;
+    border: rgb(170, 170, 170); */
+}
+
+.my-inline-input-with-border:focus {
     box-shadow: none;
 }
 
 
-.my-dishe-title{
+/* .my-dishe-title{
     padding: 10px 12px;
     font-weight: bold;
-}
+} */
 
-.my-dishe-block{
+.my-dishe-block {
     box-shadow: 0px 0px 2px black;
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
 }
+
 .my-dishe-container {
     box-shadow: 0px 0px 3px #a3a3a3;
     border-radius: 5px;
     padding: 10px;
     margin: 10px -10px 10px -10px;
 }
-.my-add-dishe{
-    padding: 10px 12px;
-}
 
-.my-dropdown-size{
+/* .my-add-dishe{
+    padding: 10px 12px;
+} */
+
+.my-dropdown-size {
     max-height: 300px;
     overflow: auto;
+}
+
+.my-pad-v-3 {
+    padding: 3px 0px;
+}
+.my-pad-v-10 {
+    padding: 10px 0px;
+}
+
+.my-border{
+    /* border: 1px solid; */
+    margin: 5px 0px 5px 0px;
+    padding: 10px;
+    box-shadow: 0px 0px 3px;
+    border-radius: 5px;
 }

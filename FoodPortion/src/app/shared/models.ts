@@ -1,4 +1,5 @@
 export interface IDishe extends IId {
+    isShow?: boolean;
     name: string;
     portionPart: IPortionPart;
 }
