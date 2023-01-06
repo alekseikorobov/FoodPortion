@@ -2,14 +2,39 @@ import { Injectable } from '@angular/core';
 import { inner_disheAll } from './inner_disheAll';
 import { inner_param } from './inner_param';
 import { inner_products } from './inner_products';
-import { IDishe, IDisheAll, IProduct, IId, IParams, IPortion, IPortionGroup } from './models';
+import { IDishe, IDisheAll, IProduct, IId, IParams, IPortion, IPortionGroup, IPortionDay } from './models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
 
-  
+  _portions!: IPortionDay[];
+
+  get portions(): IPortionDay[] {
+
+    if (!this._portions) {
+      let portions_str = localStorage.getItem('PortionDay');
+      
+      if (portions_str != null) {
+        this._portions = JSON.parse(portions_str);
+      }
+      else {
+        this._portions = [];
+      }
+      for (let index = 0; index < this._portions.length; index++) {
+        const portion = this._portions[index];
+
+        if (portion.portion1) { portion.portion1.portionGroup = this.getGroupPortion(portion.portion1.portionList); }
+        if (portion.portion2) { portion.portion2.portionGroup = this.getGroupPortion(portion.portion2.portionList); }
+        if (portion.portion3) { portion.portion3.portionGroup = this.getGroupPortion(portion.portion3.portionList); }
+        if (portion.portion4) { portion.portion4.portionGroup = this.getGroupPortion(portion.portion4.portionList); }
+      }
+    }
+    return this._portions;
+
+  }
+
   _disheAll!: IDisheAll;
 
   get disheAll(): IDisheAll {
@@ -131,6 +156,7 @@ export class StorageService {
     localStorage.removeItem('params');
     localStorage.removeItem('DisheAll');
     localStorage.removeItem('Products');
+    localStorage.removeItem('PortionDay');
   }
 
 
@@ -138,6 +164,7 @@ export class StorageService {
     localStorage.setItem('params', JSON.stringify(this.params));
     localStorage.setItem('DisheAll', JSON.stringify(this.disheAll));
     localStorage.setItem('Products', JSON.stringify(this.products));
+    localStorage.setItem('PortionDay', JSON.stringify(this.portions));
   }
 
   existsId(id: number, items: IId[]): boolean {

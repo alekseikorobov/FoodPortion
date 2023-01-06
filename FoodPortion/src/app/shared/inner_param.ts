@@ -6,5 +6,7 @@ export const inner_param: IParams = {
     "portion2": 30,
     "portion3": 25,
     "portion4": 20,
-    "portion_bzu": "1:1:4"
+    "portion_bzu": "1:1:4",
+    count_day:1,
+    count_people:1    
 };

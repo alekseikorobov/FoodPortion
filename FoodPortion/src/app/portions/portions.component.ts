@@ -9,40 +9,18 @@ import { StorageService } from '../shared/storage.service';
 })
 export class PortionsComponent {
 
-  portionList: IPortionDay[] = [
-    {
-      day: '01',
-      portion1: {
-        portionList: [
-          {
-            product: { id: 4, name: 'Колбаса с/к', proteins: 20, fats: 40, carbohydrates: 0, calories100g: 430, onePortionG: 55, isMain: true, types: 'з,п' },
-          }
-        ],
-      }
-    }
-  ]
+  get portionList(): IPortionDay[]{
+    return this.storageService.portions;
+  }
 
   constructor(private storageService: StorageService) {
-
-    for (let index = 0; index < this.portionList.length; index++) {
-      const portion = this.portionList[index];
-
-      if (portion.portion1?.portionGroup == null) {
-        portion.portion1.portionGroup = this.storageService.getGroupPortion(portion.portion1.portionList);
-      }
-
-    }
-
   }
 
 
-  days: number = 1
-  countPeoples: number = 1
-
   generate() {
-    this.portionList = [];
+    this.portionList.length = 0;
 
-    for (let index = 0; index < this.days; index++) {
+    for (let index = 0; index < this.params.count_day; index++) {
 
       let portion = <IPortionDay>{
         day: (index + 1).toString(),
@@ -59,6 +37,18 @@ export class PortionsComponent {
 
   get params(): IParams {
     return this.storageService.params;
+  }
+
+  textSaved = '';
+  save(){
+    this.storageService.save();
+    this.textSaved = 'Saved';
+    setTimeout(() => {
+      this.textSaved = '';
+    }, 1000);
+  }
+  download(){
+
   }
 
   getRandomInt(max: number): number {

@@ -89,3 +89,11 @@
     box-shadow: 0px 0px 3px;
     border-radius: 5px;
 }
+
+.my-day-title{
+    background: #e4efff;
+    padding: 5px 10px;
+    margin: 9px -10px;
+    border-radius: 8px;
+    ont-weight: bold;
+}

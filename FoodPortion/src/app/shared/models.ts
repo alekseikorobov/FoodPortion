@@ -14,7 +14,7 @@ export interface IId {
 }
 export interface IProduct extends IId {
     name: string;
-    isMain: boolean;
+    isMain: boolean; // TODO: переделать в итрибут для отключения продукта из питания
     types: string; //з,о,у,п
     proteins: number;
     fats: number;
@@ -50,4 +50,6 @@ export interface IParams {
     portion3: number; //ужин (%)
     portion4: number; //перекус (%)
     portion_bzu: string;
+    count_day:number;
+    count_people:number;
 }
