@@ -44,7 +44,6 @@ export interface IPortion {
     productId?: number;
 }
 export interface IParams {
-    products: IProduct[];
     call: number;
     portion1: number; //завтрак (%)
     portion2: number; //обед (%)

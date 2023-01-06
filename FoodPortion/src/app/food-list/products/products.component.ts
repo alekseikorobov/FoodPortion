@@ -16,6 +16,9 @@ export class ProductsComponent {
   get params():IParams{
     return this.storageService.params;
   }
+  get products():IProduct[]{
+    return this.storageService.products;
+  }
 
   deleteRow(p: IProduct) {
     this.storageService.deleteProduct(p.id);

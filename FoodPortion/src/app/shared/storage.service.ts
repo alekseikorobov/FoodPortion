@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { inner_param, inner_disheAll } from './const';
+import { inner_disheAll } from './inner_disheAll';
+import { inner_param } from './inner_param';
+import { inner_products } from './inner_products';
 import { IDishe, IDisheAll, IProduct, IId, IParams, IPortion, IPortionGroup } from './models';
 
 @Injectable({
@@ -7,7 +9,7 @@ import { IDishe, IDisheAll, IProduct, IId, IParams, IPortion, IPortionGroup } fr
 })
 export class StorageService {
 
-
+  
   _disheAll!: IDisheAll;
 
   get disheAll(): IDisheAll {
@@ -23,6 +25,34 @@ export class StorageService {
     }
 
     return this._disheAll;
+  }
+  _param!: IParams;
+  get params(): IParams {
+
+    if (!this._param) {
+      let params_str = localStorage.getItem('params');
+
+      if (params_str != null) {
+        this._param = JSON.parse(params_str);
+      } else {
+        this._param = inner_param;
+      }
+    }
+    return this._param;
+  }
+  _products!: IProduct[];
+  get products(): IProduct[] {
+
+    if (!this._products) {
+      let params_str = localStorage.getItem('Products');
+
+      if (params_str != null) {
+        this._products = JSON.parse(params_str);
+      } else {
+        this._products = inner_products;
+      }
+    }
+    return this._products;
   }
 
   initProduct(): IDisheAll {
@@ -40,7 +70,9 @@ export class StorageService {
       const dishesPortion = dishes[index];
       for (let index = 0; index < dishesPortion.portionPart.portionList.length; index++) {
         const portion = dishesPortion.portionPart.portionList[index];
-        portion.product = this.getProductById(portion.productId!);
+        if (portion.productId) {
+          portion.product = this.getProductById(portion.productId);
+        }
       }
       dishesPortion.portionPart.portionGroup = this.getGroupPortion(dishesPortion.portionPart.portionList);
     }
@@ -98,13 +130,14 @@ export class StorageService {
   clear() {
     localStorage.removeItem('params');
     localStorage.removeItem('DisheAll');
+    localStorage.removeItem('Products');
   }
 
 
   save() {
-    localStorage.setItem('params', JSON.stringify(this._param));
-
+    localStorage.setItem('params', JSON.stringify(this.params));
     localStorage.setItem('DisheAll', JSON.stringify(this.disheAll));
+    localStorage.setItem('Products', JSON.stringify(this.products));
   }
 
   existsId(id: number, items: IId[]): boolean {
@@ -128,9 +161,9 @@ export class StorageService {
 
   addProduct(product: IProduct) {
 
-    let id = this.getMaxId(this._param.products) + 1;
+    let id = this.getMaxId(this.products) + 1;
     product.id = id;
-    this._param.products.push(product);
+    this.products.push(product);
   }
 
   getIndexProductById(id: number, products: IProduct[]): number {
@@ -146,8 +179,8 @@ export class StorageService {
 
   getProductById(id: number): IProduct | undefined {
 
-    for (let index = 0; index < this.params.products.length; index++) {
-      const product = this.params.products[index];
+    for (let index = 0; index < this.products.length; index++) {
+      const product = this.products[index];
       if (product.id == id) {
         return product;
       }
@@ -157,32 +190,14 @@ export class StorageService {
 
   deleteProduct(id: number) {
 
-    let index = this.getIndexProductById(id, this.params.products);
+    let index = this.getIndexProductById(id, this.products);
 
     if (index > -1) {
-      this.params.products.splice(index, 1);
+      this.products.splice(index, 1);
     }
 
   }
 
-
-
-  _param!: IParams;
-  get params(): IParams {
-
-    if (!this._param) {
-      let params_str = localStorage.getItem('params');
-
-      if (params_str != null) {
-        this._param = JSON.parse(params_str);
-      } else {
-        this._param = inner_param;
-      }
-    }
-    return this._param;
-  }
-
-  constructor() { }
 }
 
 

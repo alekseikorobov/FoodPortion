@@ -24,10 +24,12 @@ export class FoodListComponent  {
 
     this.storageService.save();
 
-    console.log('DisheAll');
+    console.log('export const inner_disheAll: IDisheAll = ');
     console.dir(JSON.stringify(this.storageService.disheAll));    
-    console.log('Params');
+    console.log('export const inner_param: IParams = ');
     console.dir(JSON.stringify(this.storageService.params));
+    console.log('export const inner_products: IProduct[] = ');
+    console.dir(JSON.stringify(this.storageService.products));
 
 
     this.textSaved = 'Saved';

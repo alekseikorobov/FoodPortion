@@ -44,12 +44,15 @@ export class DishePartComponent implements OnInit {
   get params(): IParams {
     return this.storageService.params;
   }
+  get products(): IProduct[] {
+    return this.storageService.products;
+  }
 
   products_part: IProduct[] = []
 
   toggleMenu(e: any) {
     if (this.products_part.length == 0) {
-      this.products_part = this.storageService.getProductByType(this.type, this.params.products);
+      this.products_part = this.storageService.getProductByType(this.type, this.products);
     }
     return false;
   }
