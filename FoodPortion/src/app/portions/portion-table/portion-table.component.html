@@ -42,9 +42,9 @@
             <td>{{p.product?.fats}}</td>
             <td>{{p.product?.carbohydrates}}</td>
 
-            <td>{{p.product?.proteins}}</td>
-            <td>{{p.product?.fats}}</td>
-            <td>{{p.product?.carbohydrates}}</td>
+            <td><span *ngIf="p.product">{{p.product.proteins * p.product.onePortionG / 100 }}</span></td>
+            <td><span *ngIf="p.product">{{p.product.fats * p.product.onePortionG / 100}}</span></td>
+            <td><span *ngIf="p.product">{{p.product.carbohydrates * p.product.onePortionG / 100}}</span></td>
 
         </tr>
         <tr class="my-tr">

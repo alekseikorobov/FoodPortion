@@ -226,24 +226,11 @@ export const inner_disheAll: IDisheAll = {
             "name": "Овсянка со сгущенкой",
             "portionPart": {
                 "portionGroup": {
-                    "calories": 323,
-                    "caloriesPorcent": 12.42,
-                    "portionGramm": 95
+                    "calories": 337.6,
+                    "caloriesPorcent": 12.98,
+                    "portionGramm": 100
                 },
                 "portionList": [
-                    {
-                        "product": {
-                            "calories100g": 340,
-                            "carbohydrates": 65,
-                            "fats": 6,
-                            "id": 23,
-                            "isMain": true,
-                            "name": "Овсянка",
-                            "onePortionG": 55,
-                            "proteins": 12,
-                            "types": "з"
-                        }
-                    },
                     {
                         "product": {
                             "calories100g": 340,
@@ -255,6 +242,19 @@ export const inner_disheAll: IDisheAll = {
                             "onePortionG": 40,
                             "proteins": 7,
                             "types": "з,п"
+                        }
+                    },
+                    {
+                        "product": {
+                            "calories100g": 336,
+                            "carbohydrates": 59.8,
+                            "fats": 5.9,
+                            "id": 23,
+                            "isMain": true,
+                            "name": "Овсянка",
+                            "onePortionG": 60,
+                            "proteins": 8.9,
+                            "types": "з"
                         }
                     }
                 ]
@@ -291,6 +291,7 @@ export const inner_disheAll: IDisheAll = {
     "dishesPortion2": [
         {
             "id": 1,
+            "isShow": false,
             "name": "Гречка с мясом",
             "portionPart": {
                 "portionGroup": {
@@ -370,6 +371,272 @@ export const inner_disheAll: IDisheAll = {
                     }
                 ]
             }
+        },
+        {
+            "id": 3,
+            "isShow": false,
+            "name": "Гречка с тушенкой",
+            "portionPart": {
+                "portionGroup": {
+                    "calories": 408.5,
+                    "caloriesPorcent": 15.71,
+                    "portionGramm": 145
+                },
+                "portionList": [
+                    {
+                        "product": {
+                            "calories100g": 230,
+                            "carbohydrates": 0,
+                            "fats": 18,
+                            "id": 1,
+                            "isMain": true,
+                            "name": "Тушенка говяж.",
+                            "onePortionG": 70,
+                            "proteins": 17,
+                            "types": "о,у"
+                        }
+                    },
+                    {
+                        "product": {
+                            "calories100g": 330,
+                            "carbohydrates": 68,
+                            "fats": 2,
+                            "id": 21,
+                            "isMain": true,
+                            "name": "Гречка",
+                            "onePortionG": 75,
+                            "proteins": 13,
+                            "types": "о,у"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "isShow": false,
+            "name": "Макароны с мясом",
+            "portionPart": {
+                "portionGroup": {
+                    "calories": 504,
+                    "caloriesPorcent": 19.38,
+                    "portionGramm": 120
+                },
+                "portionList": [
+                    {
+                        "product": {
+                            "calories100g": 600,
+                            "carbohydrates": 0,
+                            "fats": 40,
+                            "id": 3,
+                            "isMain": true,
+                            "name": "Мясо сублим.",
+                            "onePortionG": 30,
+                            "proteins": 60,
+                            "types": "о,у"
+                        }
+                    },
+                    {
+                        "product": {
+                            "calories100g": 360,
+                            "carbohydrates": 75,
+                            "fats": 1,
+                            "id": 19,
+                            "isMain": true,
+                            "name": "Макароны",
+                            "onePortionG": 90,
+                            "proteins": 10,
+                            "types": "о,у"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "isShow": false,
+            "name": "Макароны с тушенкой",
+            "portionPart": {
+                "portionGroup": {
+                    "calories": 485,
+                    "caloriesPorcent": 18.65,
+                    "portionGramm": 160
+                },
+                "portionList": [
+                    {
+                        "product": {
+                            "calories100g": 360,
+                            "carbohydrates": 75,
+                            "fats": 1,
+                            "id": 19,
+                            "isMain": true,
+                            "name": "Макароны",
+                            "onePortionG": 90,
+                            "proteins": 10,
+                            "types": "о,у"
+                        }
+                    },
+                    {
+                        "product": {
+                            "calories100g": 230,
+                            "carbohydrates": 0,
+                            "fats": 18,
+                            "id": 1,
+                            "isMain": true,
+                            "name": "Тушенка говяж.",
+                            "onePortionG": 70,
+                            "proteins": 17,
+                            "types": "о,у"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 6,
+            "isShow": false,
+            "name": "Суп лапшычный",
+            "portionPart": {
+                "portionGroup": {
+                    "calories": 689.75,
+                    "caloriesPorcent": 26.53,
+                    "portionGramm": 197
+                },
+                "portionList": [
+                    {
+                        "product": {
+                            "calories100g": 360,
+                            "carbohydrates": 75,
+                            "fats": 1,
+                            "id": 19,
+                            "isMain": true,
+                            "name": "Макароны",
+                            "onePortionG": 90,
+                            "proteins": 10,
+                            "types": "о,у"
+                        }
+                    },
+                    {
+                        "product": {
+                            "calories100g": 230,
+                            "carbohydrates": 0,
+                            "fats": 18,
+                            "id": 1,
+                            "isMain": true,
+                            "name": "Тушенка говяж.",
+                            "onePortionG": 70,
+                            "proteins": 17,
+                            "types": "о,у"
+                        }
+                    },
+                    {
+                        "product": {
+                            "calories100g": 900,
+                            "carbohydrates": 0,
+                            "fats": 99.9,
+                            "id": 14,
+                            "isMain": true,
+                            "name": "Масло подсолн.",
+                            "onePortionG": 22,
+                            "proteins": 0,
+                            "types": "з,о,у,п"
+                        }
+                    },
+                    {
+                        "product": {
+                            "calories100g": 45,
+                            "carbohydrates": 9,
+                            "fats": 0,
+                            "id": 28,
+                            "isMain": true,
+                            "name": "Лук репчатый",
+                            "onePortionG": 15,
+                            "proteins": 2,
+                            "types": "о,у,п"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 7,
+            "isShow": false,
+            "name": "Пюре с тушенкой",
+            "portionPart": {
+                "portionGroup": {
+                    "calories": 350,
+                    "caloriesPorcent": 13.46,
+                    "portionGramm": 130
+                },
+                "portionList": [
+                    {
+                        "product": {
+                            "calories100g": 315,
+                            "carbohydrates": 72.3,
+                            "fats": 0,
+                            "id": 25,
+                            "isMain": true,
+                            "name": "Картоф. пюре",
+                            "onePortionG": 60,
+                            "proteins": 6.1,
+                            "types": "о,у"
+                        }
+                    },
+                    {
+                        "product": {
+                            "calories100g": 230,
+                            "carbohydrates": 0,
+                            "fats": 18,
+                            "id": 1,
+                            "isMain": true,
+                            "name": "Тушенка говяж.",
+                            "onePortionG": 70,
+                            "proteins": 17,
+                            "types": "о,у"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 8,
+            "isShow": false,
+            "name": "Пюре с мясом ",
+            "portionPart": {
+                "portionGroup": {
+                    "calories": 369,
+                    "caloriesPorcent": 14.19,
+                    "portionGramm": 90
+                },
+                "portionList": [
+                    {
+                        "product": {
+                            "calories100g": 315,
+                            "carbohydrates": 72.3,
+                            "fats": 0,
+                            "id": 25,
+                            "isMain": true,
+                            "name": "Картоф. пюре",
+                            "onePortionG": 60,
+                            "proteins": 6.1,
+                            "types": "о,у"
+                        }
+                    },
+                    {
+                        "product": {
+                            "calories100g": 600,
+                            "carbohydrates": 0,
+                            "fats": 40,
+                            "id": 3,
+                            "isMain": true,
+                            "name": "Мясо сублим.",
+                            "onePortionG": 30,
+                            "proteins": 60,
+                            "types": "о,у"
+                        }
+                    }
+                ]
+            }
         }
     ],
     "dishesPortion3": [
@@ -396,6 +663,87 @@ export const inner_disheAll: IDisheAll = {
                             "types": "з,п"
                         },
                         "productId": 33
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "isShow": false,
+            "name": "Печенье",
+            "portionPart": {
+                "portionGroup": {
+                    "calories": 105,
+                    "caloriesPorcent": 4.04,
+                    "portionGramm": 25
+                },
+                "portionList": [
+                    {
+                        "product": {
+                            "calories100g": 420,
+                            "carbohydrates": 70,
+                            "fats": 10,
+                            "id": 18,
+                            "isMain": true,
+                            "name": "Печенье",
+                            "onePortionG": 25,
+                            "proteins": 10,
+                            "types": "з,п"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "isShow": false,
+            "name": "Халва",
+            "portionPart": {
+                "portionGroup": {
+                    "calories": 200,
+                    "caloriesPorcent": 7.69,
+                    "portionGramm": 40
+                },
+                "portionList": [
+                    {
+                        "product": {
+                            "calories100g": 500,
+                            "carbohydrates": 45,
+                            "fats": 30,
+                            "id": 31,
+                            "isMain": true,
+                            "name": "Халва",
+                            "onePortionG": 40,
+                            "proteins": 12,
+                            "types": "п"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "isShow": true,
+            "name": "Пряники",
+            "portionPart": {
+                "portionGroup": {
+                    "calories": 334,
+                    "caloriesPorcent": 12.85,
+                    "portionGramm": 100
+                },
+                "portionList": [
+                    {
+                        "product": {
+                            "calories100g": 334,
+                            "carbohydrates": 72.5,
+                            "fats": 0,
+                            "id": 41,
+                            "isMain": true,
+                            "name": "Пряники",
+                            "onePortionG": 100,
+                            "proteins": 8.9,
+                            "types": "з,о,у,п"
+                        }
                     }
                 ]
             }

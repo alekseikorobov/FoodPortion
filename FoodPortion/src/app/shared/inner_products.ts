@@ -244,14 +244,14 @@ export const inner_products: IProduct[] = [
         "types": "з"
     },
     {
-        "calories100g": 340,
-        "carbohydrates": 65,
-        "fats": 6,
+        "calories100g": 336,
+        "carbohydrates": 59.8,
+        "fats": 5.9,
         "id": 23,
         "isMain": true,
         "name": "Овсянка",
-        "onePortionG": 55,
-        "proteins": 12,
+        "onePortionG": 60,
+        "proteins": 8.9,
         "types": "з"
     },
     {
@@ -439,6 +439,17 @@ export const inner_products: IProduct[] = [
         "name": "Кофе 3 в 1",
         "onePortionG": 20,
         "proteins": 2,
+        "types": "з,о,у,п"
+    },
+    {
+        "calories100g": 334,
+        "carbohydrates": 72.5,
+        "fats": 0,
+        "id": 41,
+        "isMain": true,
+        "name": "Пряники",
+        "onePortionG": 100,
+        "proteins": 8.9,
         "types": "з,о,у,п"
     }
 ];
