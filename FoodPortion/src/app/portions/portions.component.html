@@ -1,60 +1,14 @@
 <div class="row my-pad-top">
-    <!-- <a routerLink="/settings" routerLinkActive="active" ariaCurrentWhenActive="page">Перейти в настройки</a> -->
-
-    <table class="my-margin-lr">
-        <tr>
-            <td class="my-td-w">
-                Количество дней
-            </td>
-            <td>
-                <input type="number" [(ngModel)]="params.count_day" class="form-control my-inline" />
-            </td>
-        </tr>
-        <!-- TODO: добавить -->
-        <!-- <tr>
-            <td class="my-td-w">
-                Количество человек
-            </td>
-            <td>
-                <input class="form-control my-inline" type="number" [(ngModel)]="params.count_people" />
-            </td>
-        </tr> -->
-    </table>
-
     <div class="my-sep"></div>
-
-    <div class="row">
-        <div class="col-12 col-md-6" style="text-align: center;">
-            <button class="btn btn-primary my-inline" style="width: 320px;margin: 10px;" (click)="generate()">Сгенерировать раскладку</button>
-        </div>
-        <div class="col-6 col-md-3" style="text-align: center;">
-            <button class="btn btn-primary" style="margin: 10px;"  (click)="save()">Сохранить</button> <span style="padding: 10px;">{{textSaved}}</span>
-        </div>
-        <div class="col-6 col-md-3"  style="text-align: center;">
-            <button class="btn btn-primary" style="margin: 10px;"  (click)="download()">Выгрузить</button>
-        </div>
-    </div>
-
-    <div class="my-sep"></div>
-
-    <div *ngFor="let portion of portionList">
-
-        <p class="my-day-title">День: {{portion.day}}</p>
-
-        <p><b>Завтрак</b> ({{params.portion1}}%)</p>
-        <app-portion-table [portion]="portion.portion1"></app-portion-table>
-
-
-        <p><b>Обед</b> ({{params.portion2}}%)</p>
-        <app-portion-table [portion]="portion.portion2"></app-portion-table>
-
-
-        <p><b>Ужин</b> ({{params.portion3}}%)</p>
-        <app-portion-table [portion]="portion.portion3"></app-portion-table>
-
-        <p><b>Перекус</b> ({{params.portion4}}%)</p>
-        <app-portion-table [portion]="portion.portion4"></app-portion-table>
-
-    </div>
-
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a routerLink="/portions/list" class="nav-link" routerLinkActive="active"
+                ariaCurrentWhenActive="page">Раскладка</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/portions/products" class="nav-link" routerLinkActive="active"
+                ariaCurrentWhenActive="page">Продукты</a>
+        </li>
+    </ul>
+    <router-outlet></router-outlet>
 </div>

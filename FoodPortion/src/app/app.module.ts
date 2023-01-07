@@ -7,11 +7,13 @@ import { FoodListComponent } from './food-list/food-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { PortionsComponent } from './portions/portions.component';
-import { PortionTableComponent } from './portions/portion-table/portion-table.component';
+import { PortionTableComponent } from './portions/portions-list/portion-table/portion-table.component';
 import { ProductsComponent } from './food-list/products/products.component';
 import { DishesComponent } from './food-list/dishes/dishes.component';
 import { MainComponent } from './food-list/main/main.component';
 import { DishePartComponent } from './food-list/dishes/dishe-part/dishe-part.component';
+import { TravelProductsComponent } from './portions/travel-products/travel-products.component';
+import { PortionsListComponent } from './portions/portions-list/portions-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { DishePartComponent } from './food-list/dishes/dishe-part/dishe-part.com
     ProductsComponent,
     DishesComponent,
     MainComponent,
-    DishePartComponent
+    DishePartComponent,
+    TravelProductsComponent,
+    PortionsListComponent
   ],
   imports: [
     BrowserModule,

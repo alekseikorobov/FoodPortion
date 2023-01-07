@@ -723,7 +723,7 @@ export const inner_disheAll: IDisheAll = {
         },
         {
             "id": 4,
-            "isShow": true,
+            "isShow": false,
             "name": "Пряники",
             "portionPart": {
                 "portionGroup": {

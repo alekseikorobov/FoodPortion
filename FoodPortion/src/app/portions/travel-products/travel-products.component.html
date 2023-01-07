@@ -1,0 +1,42 @@
+<div class="my-sep"></div>
+
+<table class="my-margin-lr">
+
+    <!-- TODO: добавить -->
+    <tr>
+        <td class="my-td-w">
+            Количество человек
+        </td>
+        <td>
+            <input class="form-control my-inline" type="number" [(ngModel)]="params.count_people" />
+        </td>
+    </tr>
+</table>
+
+<!-- <div class="my-sep"></div>
+
+<div class="row">
+    <div class="col-6 col-md-3"  style="text-align: center;">
+        <button class="btn btn-primary" style="margin: 10px;"  (click)="download()">Выгрузить</button>
+    </div>
+</div> -->
+
+<div class="my-sep"></div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Наименование</th>
+            <th>Грам на все порции</th>
+            <th>На {{params.count_people}} человек</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products" class="my-tr">
+            <td>{{product.name}}</td>
+            <td>{{product.onePortionG}}</td>
+            <td>{{product.onePortionG * params.count_people}}</td>
+        </tr>
+    </tbody>
+</table>
