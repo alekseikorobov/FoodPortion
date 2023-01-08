@@ -15,7 +15,7 @@ export class StorageService {
 
     if (!this._portions) {
       let portions_str = localStorage.getItem('PortionDay');
-      
+
       if (portions_str != null) {
         this._portions = JSON.parse(portions_str);
       }
@@ -47,6 +47,7 @@ export class StorageService {
       else {
         this._disheAll = this.initProduct();
       }
+      this.fixedDisheAllGroup();
     }
 
     return this._disheAll;
@@ -102,6 +103,11 @@ export class StorageService {
       dishesPortion.portionPart.portionGroup = this.getGroupPortion(dishesPortion.portionPart.portionList);
     }
   }
+  fixedDisheAllGroup() {
+    this.initProductPart(this._disheAll.dishesPortion1);
+    this.initProductPart(this._disheAll.dishesPortion2);
+    this.initProductPart(this._disheAll.dishesPortion3);
+  }
 
 
   getProductByType(type: string, products: IProduct[]): IProduct[] {
@@ -130,9 +136,24 @@ export class StorageService {
     for (let index = 0; index < portion1List.length; index++) {
       const portion = portion1List[index];
       if (portion.product) {
-        g.calories += portion.product.calories100g * portion.product.onePortionG / 100;
+        g.calories += +(portion.product.calories100g * portion.product.onePortionG / 100).toFixed(2);
         g.caloriesPorcent = +(g.calories * 100 / this.params.call).toFixed(2);
         g.portionGramm += portion.product.onePortionG;
+
+        if (!g.carbohydrates) g.carbohydrates = 0;
+        if (!g.fats) g.fats = 0;
+        if (!g.proteins) g.proteins = 0;
+
+        g.carbohydrates += +(portion.product.carbohydrates * portion.product.onePortionG / 100).toFixed(2);
+        g.fats += +(portion.product.fats * portion.product.onePortionG / 100).toFixed(2);
+        g.proteins += +(portion.product.proteins * portion.product.onePortionG / 100).toFixed(2);
+
+        let p1 = g.proteins == 0 ? 1 : g.proteins;
+
+        g.proteins_p =  1;
+        g.carbohydrates_p = +(g.carbohydrates/p1).toFixed(2);
+        g.fats_p =  +(g.fats/p1).toFixed(2);
+
       }
     }
 

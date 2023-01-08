@@ -52,7 +52,7 @@ export class PortionsListComponent {
   downloadFile(data: any) {
     const replacer = (key: any, value: any) => {
       if(value === null) return '';
-      
+
       if (typeof value === 'string' || value instanceof String){
         value = value?.replace(',',' ');
       }
@@ -110,7 +110,7 @@ export class PortionsListComponent {
 
     for (let index = 0; index < portionPart.portionList.length; index++) {
       const portion1 = portionPart.portionList[index];
-      let line: any = {};      
+      let line: any = {};
 
       line['День'] = day;
       line['part'] = type;
@@ -152,6 +152,14 @@ export class PortionsListComponent {
     return Math.floor(Math.random() * max);
   }
 
+  getProportions(): number[] {
+    let bzu = this.params.portion_bzu.split(':').map(s => +s);
+    if (bzu.length != 3) {
+      return [1, 1, 1]
+    }
+    return bzu;
+  }
+
   getPortions(type: string): IPortionPart {
 
     let portionPart = <IPortionPart>{};
@@ -184,6 +192,7 @@ export class PortionsListComponent {
 
     let accuracy = 50; //погрешность вычисления, точность
     let addedIds: IId[] = []
+    let bzu = this.getProportions();
     while (Math.abs(max_call - g.calories) > accuracy && max_iteration > 0) {
       index = this.getRandomInt(dishes.length);
       let dishe = dishes[index];
@@ -200,6 +209,29 @@ export class PortionsListComponent {
         continue;
       }
 
+      let g_proteins = g.proteins || 0;
+      let g_fats = g.fats || 0;
+      let g_carbohydrates = g.carbohydrates || 0;
+
+      g_proteins += dishe.portionPart.portionGroup?.proteins || 0;
+      g_fats += dishe.portionPart.portionGroup?.fats || 0;
+      g_carbohydrates += dishe.portionPart.portionGroup?.carbohydrates || 0;
+
+
+      let p1_temp = g_proteins == 0 ? 1 : g_proteins;
+
+      let g_proteins_p = 1;
+      let g_carbohydrates_p = g_carbohydrates / p1_temp
+      let g_fats_p = g_fats / p1_temp
+      if (this.params.use_portion_bzu && (
+        //Math.abs(g_fats_p - bzu[1]) > 0.5
+          Math.abs(g_fats_p - bzu[1]) > 0.5 || 
+          Math.abs(g_carbohydrates_p - bzu[2]) > 0.5
+        )
+      ) {
+        continue;
+      }
+
       dishe.portionPart.portionList.forEach(product =>
         portions.push(<IPortion>{
           product: product.product
@@ -209,8 +241,30 @@ export class PortionsListComponent {
       addedIds.push({ id: dishe.id });
 
       g.calories += dishe.portionPart.portionGroup!.calories;
-      g.caloriesPorcent = +(g.calories * 100 / this.params.call).toFixed(2);
+      g.caloriesPorcent = g.calories * 100 / this.params.call;
       g.portionGramm += dishe.portionPart.portionGroup!.portionGramm;
+
+      g.calories = +(g.calories).toFixed(2);
+      g.caloriesPorcent = +(g.caloriesPorcent).toFixed(2);
+      g.portionGramm = +(g.portionGramm).toFixed(2);
+
+      if (!g.carbohydrates) g.carbohydrates = 0;
+      if (!g.fats) g.fats = 0;
+      if (!g.proteins) g.proteins = 0;
+
+      g.proteins += dishe.portionPart.portionGroup?.proteins || 0;      
+      g.fats += dishe.portionPart.portionGroup?.fats || 0;
+      g.carbohydrates += dishe.portionPart.portionGroup?.carbohydrates || 0;
+      
+      g.proteins = +(g.proteins).toFixed(2);
+      g.fats = +(g.fats).toFixed(2);
+      g.carbohydrates = +(g.carbohydrates).toFixed(2);
+
+      let p1 = g.proteins == 0 ? 1 : g.proteins;
+
+      g.proteins_p = 1;
+      g.carbohydrates_p = +(g.carbohydrates / p1).toFixed(2);
+      g.fats_p = +(g.fats / p1).toFixed(2);
     }
 
     portionPart.portionList = portions;

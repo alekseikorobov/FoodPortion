@@ -29,6 +29,7 @@
         <tr>
             <th>Наименование</th>
             <th>Грам на все порции</th>
+            <th>Количество порций</th>
             <th>На {{params.count_people}} человек</th>
         </tr>
     </thead>
@@ -36,7 +37,14 @@
         <tr *ngFor="let product of products" class="my-tr">
             <td>{{product.name}}</td>
             <td>{{product.onePortionG}}</td>
+            <td>{{product.count_portion}}</td>
             <td>{{product.onePortionG * params.count_people}}</td>
+        </tr>
+        <tr style="font-weight: bold;">
+            <td></td>
+            <td>{{products_g.onePortionG}}</td>
+            <td></td>
+            <td>{{products_g.onePortionG * params.count_people}}</td>
         </tr>
     </tbody>
 </table>

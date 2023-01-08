@@ -18,4 +18,13 @@ export class MainComponent {
     return this.storageService.params;
   } 
 
+  getProportions(){
+
+    let bzu = this.params.portion_bzu.split(':').map(s=>+s);
+    if(bzu.length != 3) {
+      return 'не корректный формат, пример 1:1:4';
+    }    
+    return '';
+  }
+
 }

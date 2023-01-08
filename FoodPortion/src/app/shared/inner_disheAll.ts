@@ -11,7 +11,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 387.5,
                     "caloriesPorcent": 14.9,
-                    "portionGramm": 115
+                    "carbohydrates": 118,
+                    "carbohydrates_p": 2.31,
+                    "fats": 3,
+                    "fats_p": 0.06,
+                    "portionGramm": 115,
+                    "proteins": 51,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -53,7 +59,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 391.5,
                     "caloriesPorcent": 15.06,
-                    "portionGramm": 80
+                    "carbohydrates": 11,
+                    "carbohydrates_p": 0.32,
+                    "fats": 96,
+                    "fats_p": 2.82,
+                    "portionGramm": 80,
+                    "proteins": 34,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -95,7 +107,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 385,
                     "caloriesPorcent": 14.81,
-                    "portionGramm": 110
+                    "carbohydrates": 128,
+                    "carbohydrates_p": 2.78,
+                    "fats": 1,
+                    "fats_p": 0.02,
+                    "portionGramm": 110,
+                    "proteins": 46,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -135,7 +153,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 523,
                     "caloriesPorcent": 20.12,
-                    "portionGramm": 90
+                    "carbohydrates": 11,
+                    "carbohydrates_p": 0.28,
+                    "fats": 184,
+                    "fats_p": 4.67,
+                    "portionGramm": 90,
+                    "proteins": 39.4,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -188,7 +212,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 40,
                     "caloriesPorcent": 1.54,
-                    "portionGramm": 10
+                    "carbohydrates": 100,
+                    "carbohydrates_p": 100,
+                    "fats": 0,
+                    "fats_p": 0,
+                    "portionGramm": 10,
+                    "proteins": 0,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -228,7 +258,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 337.6,
                     "caloriesPorcent": 12.98,
-                    "portionGramm": 100
+                    "carbohydrates": 114.8,
+                    "carbohydrates_p": 7.22,
+                    "fats": 14.9,
+                    "fats_p": 0.94,
+                    "portionGramm": 100,
+                    "proteins": 15.9,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -268,7 +304,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 88,
                     "caloriesPorcent": 3.38,
-                    "portionGramm": 20
+                    "carbohydrates": 86,
+                    "carbohydrates_p": 43,
+                    "fats": 10,
+                    "fats_p": 5,
+                    "portionGramm": 20,
+                    "proteins": 2,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -286,6 +328,98 @@ export const inner_disheAll: IDisheAll = {
                     }
                 ]
             }
+        },
+        {
+            "id": 8,
+            "isShow": false,
+            "name": "Бутерброд с маслом",
+            "portionPart": {
+                "portionGroup": {
+                    "calories": 375,
+                    "caloriesPorcent": 14.42,
+                    "carbohydrates": 11,
+                    "carbohydrates_p": 0.76,
+                    "fats": 154,
+                    "fats_p": 10.69,
+                    "portionGramm": 50,
+                    "proteins": 14.4,
+                    "proteins_p": 1
+                },
+                "portionList": [
+                    {
+                        "product": {
+                            "calories100g": 620,
+                            "carbohydrates": 11,
+                            "fats": 56,
+                            "id": 37,
+                            "isMain": true,
+                            "name": "Хлеб",
+                            "onePortionG": 25,
+                            "proteins": 14,
+                            "types": "з,о,у,п"
+                        }
+                    },
+                    {
+                        "product": {
+                            "calories100g": 880,
+                            "carbohydrates": 0,
+                            "fats": 98,
+                            "id": 12,
+                            "isMain": true,
+                            "name": "Масло сл. топленое",
+                            "onePortionG": 25,
+                            "proteins": 0.4,
+                            "types": "з,п"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 9,
+            "isShow": false,
+            "name": "Бутерброд с сыром",
+            "portionPart": {
+                "portionGroup": {
+                    "calories": 303,
+                    "caloriesPorcent": 11.65,
+                    "carbohydrates": 11,
+                    "carbohydrates_p": 0.28,
+                    "fats": 86,
+                    "fats_p": 2.21,
+                    "portionGramm": 65,
+                    "proteins": 39,
+                    "proteins_p": 1
+                },
+                "portionList": [
+                    {
+                        "product": {
+                            "calories100g": 620,
+                            "carbohydrates": 11,
+                            "fats": 56,
+                            "id": 37,
+                            "isMain": true,
+                            "name": "Хлеб",
+                            "onePortionG": 25,
+                            "proteins": 14,
+                            "types": "з,о,у,п"
+                        }
+                    },
+                    {
+                        "product": {
+                            "calories100g": 370,
+                            "carbohydrates": 0,
+                            "fats": 30,
+                            "id": 10,
+                            "isMain": true,
+                            "name": "Сыр жирн. (50%)",
+                            "onePortionG": 40,
+                            "proteins": 25,
+                            "types": "з,п"
+                        }
+                    }
+                ]
+            }
         }
     ],
     "dishesPortion2": [
@@ -297,7 +431,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 427.5,
                     "caloriesPorcent": 16.44,
-                    "portionGramm": 105
+                    "carbohydrates": 68,
+                    "carbohydrates_p": 0.93,
+                    "fats": 42,
+                    "fats_p": 0.58,
+                    "portionGramm": 105,
+                    "proteins": 73,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -338,7 +478,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 391.5,
                     "caloriesPorcent": 15.06,
-                    "portionGramm": 80
+                    "carbohydrates": 11,
+                    "carbohydrates_p": 0.32,
+                    "fats": 96,
+                    "fats_p": 2.82,
+                    "portionGramm": 80,
+                    "proteins": 34,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -380,7 +526,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 408.5,
                     "caloriesPorcent": 15.71,
-                    "portionGramm": 145
+                    "carbohydrates": 68,
+                    "carbohydrates_p": 2.27,
+                    "fats": 20,
+                    "fats_p": 0.67,
+                    "portionGramm": 145,
+                    "proteins": 30,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -420,7 +572,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 504,
                     "caloriesPorcent": 19.38,
-                    "portionGramm": 120
+                    "carbohydrates": 75,
+                    "carbohydrates_p": 1.07,
+                    "fats": 41,
+                    "fats_p": 0.59,
+                    "portionGramm": 120,
+                    "proteins": 70,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -460,7 +618,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 485,
                     "caloriesPorcent": 18.65,
-                    "portionGramm": 160
+                    "carbohydrates": 75,
+                    "carbohydrates_p": 2.78,
+                    "fats": 19,
+                    "fats_p": 0.7,
+                    "portionGramm": 160,
+                    "proteins": 27,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -500,7 +664,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 689.75,
                     "caloriesPorcent": 26.53,
-                    "portionGramm": 197
+                    "carbohydrates": 84,
+                    "carbohydrates_p": 2.9,
+                    "fats": 118.9,
+                    "fats_p": 4.1,
+                    "portionGramm": 197,
+                    "proteins": 29,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -566,7 +736,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 350,
                     "caloriesPorcent": 13.46,
-                    "portionGramm": 130
+                    "carbohydrates": 72.3,
+                    "carbohydrates_p": 3.13,
+                    "fats": 18,
+                    "fats_p": 0.78,
+                    "portionGramm": 130,
+                    "proteins": 23.1,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -606,7 +782,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 369,
                     "caloriesPorcent": 14.19,
-                    "portionGramm": 90
+                    "carbohydrates": 72.3,
+                    "carbohydrates_p": 1.09,
+                    "fats": 40,
+                    "fats_p": 0.61,
+                    "portionGramm": 90,
+                    "proteins": 66.1,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -647,7 +829,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 284,
                     "caloriesPorcent": 10.92,
-                    "portionGramm": 50
+                    "carbohydrates": 47,
+                    "carbohydrates_p": 8.1,
+                    "fats": 37,
+                    "fats_p": 6.38,
+                    "portionGramm": 50,
+                    "proteins": 5.8,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -675,7 +863,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 105,
                     "caloriesPorcent": 4.04,
-                    "portionGramm": 25
+                    "carbohydrates": 70,
+                    "carbohydrates_p": 7,
+                    "fats": 10,
+                    "fats_p": 1,
+                    "portionGramm": 25,
+                    "proteins": 10,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -702,7 +896,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 200,
                     "caloriesPorcent": 7.69,
-                    "portionGramm": 40
+                    "carbohydrates": 45,
+                    "carbohydrates_p": 3.75,
+                    "fats": 30,
+                    "fats_p": 2.5,
+                    "portionGramm": 40,
+                    "proteins": 12,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {
@@ -729,7 +929,13 @@ export const inner_disheAll: IDisheAll = {
                 "portionGroup": {
                     "calories": 334,
                     "caloriesPorcent": 12.85,
-                    "portionGramm": 100
+                    "carbohydrates": 72.5,
+                    "carbohydrates_p": 8.15,
+                    "fats": 0,
+                    "fats_p": 0,
+                    "portionGramm": 100,
+                    "proteins": 8.9,
+                    "proteins_p": 1
                 },
                 "portionList": [
                     {

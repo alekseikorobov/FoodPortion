@@ -21,8 +21,8 @@
             <th>жиры</th>
             <th>углеводы</th>
             <th>Ккал в 100 г</th>
-            <th>на 1 раз г.</th>
-            <th>Action</th>
+            <th>Порция г.</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -32,13 +32,13 @@
             <td><input class="form-control my-inline-input" type="text" [(ngModel)]="p.types" /></td>
             <td><input class="form-control my-inline-input" type="number" [(ngModel)]="p.proteins" /></td>
             <td><input class="form-control my-inline-input" type="number" [(ngModel)]="p.fats" /></td>
-            <td><input class="form-control my-inline-input" type="number" [(ngModel)]="p.carbohydrates" /></td>
+            <td><input class="form-control my-inline-input" type="number" [(ngModel)]="p.carbohydrates" /></td>            
             <td><input class="form-control my-inline-input" type="number" [(ngModel)]="p.calories100g" /></td>
             <td><input class="form-control my-inline-input" type="number" [(ngModel)]="p.onePortionG" /></td>
             <td>
-                <a href="#" (click)="deleteRow(p)">Delete</a>
+                <a href="#" (click)="deleteRow(p)">Удалить</a>
             </td>
         </tr>
     </tbody>
 </table>
-<a href="#" (click)="addRow()">Add row</a>
+<a href="#" (click)="addRow()">Добавить продукт</a>

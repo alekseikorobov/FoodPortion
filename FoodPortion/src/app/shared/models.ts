@@ -21,6 +21,8 @@ export interface IProduct extends IId {
     carbohydrates: number;
     calories100g: number;
     onePortionG: number;
+
+    count_portion?: number;
 }
 export interface IPortionPart {
     portionList: IPortion[];
@@ -30,6 +32,14 @@ export interface IPortionGroup {
     portionGramm: number;
     calories: number;
     caloriesPorcent: number;
+
+    proteins?: number;
+    fats?: number;
+    carbohydrates?: number;
+
+    proteins_p?: number;
+    fats_p?: number;
+    carbohydrates_p?: number;
 }
 export interface IPortionDay {
     day: string;
@@ -50,6 +60,7 @@ export interface IParams {
     portion3: number; //ужин (%)
     portion4: number; //перекус (%)
     portion_bzu: string;
+    use_portion_bzu: boolean;
     count_day:number;
     count_people:number;
 }

@@ -15,13 +15,13 @@
             Завтрак (%)
         </td>
         <td>
-            <input class="form-control my-inline" type="number" [(ngModel)]="params.portion1" />
+            <input class="form-control my-inline" type="number" [(ngModel)]="params.portion1" /> <span style="padding: 0px 0px 0px 10px;">({{params.portion1 * params.call/100}} г)</span>
         </td>
     </tr>
     <tr>
         <td>Обед (%)</td>
         <td>
-            <input class="form-control my-inline" type="number" [(ngModel)]="params.portion2" />
+            <input class="form-control my-inline" type="number" [(ngModel)]="params.portion2" /> <span style="padding: 0px 0px 0px 10px;">({{params.portion2 * params.call/100}} г)</span>
         </td>
     </tr>
     <tr>
@@ -29,13 +29,13 @@
             Ужин (%)
         </td>
         <td>
-            <input class="form-control my-inline" type="number" [(ngModel)]="params.portion3" />
+            <input class="form-control my-inline" type="number" [(ngModel)]="params.portion3" /> <span style="padding: 0px 0px 0px 10px;">({{params.portion3 * params.call/100}} г)</span>
         </td>
     </tr>
     <tr>
         <td>Перекус (%)</td>
         <td>
-            <input class="form-control my-inline" type="number" [(ngModel)]="params.portion4" />
+            <input class="form-control my-inline" type="number" [(ngModel)]="params.portion4" /> <span style="padding: 0px 0px 0px 10px;">({{params.portion4 * params.call/100}} г)</span>
         </td>
     </tr>
 
@@ -49,7 +49,7 @@
     <tr>
         <td>БЖУ</td>
         <td>
-            <input class="form-control my-inline" type="text" [(ngModel)]="params.portion_bzu" />
+            <input class="form-control my-inline" type="text" [(ngModel)]="params.portion_bzu" />  <span style="padding: 0px 0px 0px 10px;">{{getProportions()}}</span>
         </td>
     </tr>
 </table>

@@ -11,6 +11,14 @@
             <input type="number" [(ngModel)]="params.count_day" class="form-control my-inline" />
         </td>
     </tr>
+    <tr>
+        <td class="my-td-w">
+            Учитывать Соотношение БЖУ 
+        </td>
+        <td>
+            <input type="checkbox" [(ngModel)]="params.use_portion_bzu" class="my-inline" /> <span class="my-inline">({{params.portion_bzu}})</span>
+        </td>
+    </tr>
     <!-- TODO: добавить -->
     <!-- <tr>
         <td class="my-td-w">
