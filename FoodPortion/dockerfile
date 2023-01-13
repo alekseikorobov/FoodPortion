@@ -1,0 +1,23 @@
+FROM node:12.18.1
+EXPOSE 4200
+# ARG cmd
+
+# RUN ["mkdir", "/app"]
+
+# COPY package.json /app/
+
+# WORKDIR /app
+
+# COPY "docker/.npmrc" /app/.npmrc
+# RUN npm install
+
+# COPY . /app/
+
+# RUN ${cmd}
+
+# ENV PATH /node_modules/.bin:$PATH
+
+#COPY . /app/
+# RUN npm install
+
+# RUN mkdir /home/node/.npm-global

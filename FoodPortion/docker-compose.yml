@@ -1,0 +1,17 @@
+
+
+services:
+  node:
+    # image: node:12.18.1
+    build:
+      dockerfile: dockerfile      
+    working_dir: /app
+    user: node
+    ports:
+      - 4200:4200
+    volumes:
+      - .:/app
+      - ./node_modules:/app/node_modules:rw
+      #- ${npmrc_part}:/home/node/.npmrc
+    command: npm run build-stg
+    
