@@ -28,29 +28,49 @@
     <thead>
         <tr>
             <th>Наименование</th>
+            <th>Грам на одну порцию</th>
             <th>Грам на все порции</th>
             <th>Количество порций</th>
             <th>На {{params.count_people}} человек</th>
+            <th>белки</th>
+            <th>жиры</th>
+            <th>углеводы</th>
+            <th>Ккал в 100 г</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let product of products" class="my-tr">
             <td>{{product.name}}</td>
+            <td>{{product.onePortionG / (product.count_portion ?? 1)}}</td>
             <td>{{product.onePortionG}}</td>
             <td>{{product.count_portion}}</td>
             <td>{{product.onePortionG * params.count_people}}</td>
+            <td>{{product.proteins}}</td>
+            <td>{{product.fats}}</td>
+            <td>{{product.carbohydrates}}</td>
+            <td>{{product.calories100g}}</td>
         </tr>
         <tr style="font-weight: bold;">
             <td>Общее</td>
+            <td></td>
             <td>{{products_g.onePortionG}}</td>
             <td></td>
             <td>{{products_g.onePortionG * params.count_people}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr style="font-weight: bold;">
             <td>Общее на день ({{params.count_day}} дней)</td>
+            <td></td>
             <td>{{products_g.onePortionG / params.count_day}}</td>
             <td></td>
             <td>{{products_g.onePortionG * params.count_people / params.count_day}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </tbody>
 </table>

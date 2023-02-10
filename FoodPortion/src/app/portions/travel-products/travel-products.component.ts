@@ -64,12 +64,12 @@ export class TravelProductsComponent {
             {
               name: portion.product.name,
               onePortionG: portion.product.onePortionG,
-              calories100g: 0,
-              carbohydrates: 0,
-              fats: 0,
+              calories100g: portion.product.calories100g,
+              carbohydrates: portion.product.carbohydrates,
+              fats: portion.product.fats,
               id: portion.product.id,
               isMain: false,
-              proteins: 0,
+              proteins: portion.product.proteins,
               types: '',
               count_portion: 1
             }
