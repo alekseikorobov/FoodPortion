@@ -43,6 +43,9 @@
         <button class="btn btn-primary" style="margin: 10px;"  (click)="download()">Выгрузить</button>
     </div>
 </div>
+<div class="row my-error-block" >
+    <p *ngIf="isError">{{messageError}}</p>
+</div>
 
 <div class="my-sep"></div>
 

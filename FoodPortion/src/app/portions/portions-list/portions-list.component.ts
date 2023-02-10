@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IDishe, IId, IParams, IPortion, IPortionDay, IPortionGroup, IPortionPart } from 'src/app/shared/models';
 import { StorageService } from 'src/app/shared/storage.service';
 import { saveAs } from 'file-saver';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-portions-list',
@@ -17,21 +18,29 @@ export class PortionsListComponent {
   constructor(private storageService: StorageService) {
   }
 
+  isError = false;
+  messageError = '';
+  generate() {    
+    try {
+      this.isError = false;
+      this.portionList.length = 0;
 
-  generate() {
-    this.portionList.length = 0;
+      for (let index = 0; index < this.params.count_day; index++) {
 
-    for (let index = 0; index < this.params.count_day; index++) {
+        let portion = <IPortionDay>{
+          day: (index + 1).toString(),
+          portion1: this.getPortions('з'),
+          portion2: this.getPortions('о'),
+          portion3: this.getPortions('у'),
+          portion4: this.getPortions('п'),
+        };
 
-      let portion = <IPortionDay>{
-        day: (index + 1).toString(),
-        portion1: this.getPortions('з'),
-        portion2: this.getPortions('о'),
-        portion3: this.getPortions('у'),
-        portion4: this.getPortions('п'),
-      };
-
-      this.portionList.push(portion);
+        this.portionList.push(portion);
+      }
+    } catch (error:any) {
+      this.isError = true;
+      console.log('error',error);
+      this.messageError = error.toString();
     }
   }
 
@@ -49,7 +58,7 @@ export class PortionsListComponent {
     }, 1000);
   }
 
-  downloadFile(data: any) {
+  downloadFile_old(data: any) {
     const replacer = (key: any, value: any) => {
       if(value === null) return '';
 
@@ -65,8 +74,38 @@ export class PortionsListComponent {
     csv.unshift(header.join(','));
     let csvArray = csv.join('\r\n');
 
-    var blob = new Blob([csvArray], { type: 'text/csv' })
+    
+    // var csvContent = "";
+     let textEncoder = new TextEncoder();
+    // //'windows-1252'
+    // textEncoder.encoding = 'windows-1252'
+
+
+    // var csvContentEncoded = textEncoder.encode([csvContent]);
+    // var blob = new Blob([csvContentEncoded], {type: 'text/csv;charset=windows-1252;'});
+    // saveAs(blob, 'some-data.csv');
+
+    var blob = new Blob([csvArray], { type: 'text/csv;charset=cp1251,' })
+    //console.log('blob',blob);
     saveAs(blob, "food_portions.csv");
+  }
+
+  downloadFile(data: any): void
+  {
+
+    var worksheet = XLSX.utils.json_to_sheet(data);
+
+    /* pass here the table id */
+    //let element = document.getElementById('all-portionList');
+    //const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, worksheet, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, "food_portions.xlsx");
+ 
   }
 
 
@@ -231,7 +270,7 @@ export class PortionsListComponent {
       ) {
         continue;
       }
-
+      
       dishe.portionPart.portionList.forEach(product =>
         portions.push(<IPortion>{
           product: product.product

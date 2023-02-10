@@ -1,5 +1,5 @@
 .my-inline {
-    width: 100px;
+    width: 110px;
     display: inline;
 }
 
@@ -96,4 +96,8 @@
     margin: 9px -10px;
     border-radius: 8px;
     font-weight: bold;
+}
+
+.my-error-block{
+    
 }

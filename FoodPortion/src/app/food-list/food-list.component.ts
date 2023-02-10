@@ -32,7 +32,7 @@ export class FoodListComponent  {
     console.dir(JSON.stringify(this.storageService.products));
 
 
-    this.textSaved = 'Saved';
+    this.textSaved = 'Сохранено';
     
 
     setTimeout(() => {
@@ -42,14 +42,20 @@ export class FoodListComponent  {
 
   textCleared = '';
   clear() {
+
+    if(!confirm('Сбросить текущие настройки? Настройки будут по умолчанию.')){
+      return;
+    }
+
     
     this.storageService.clear();
 
+    location.reload();
     
-    this.textCleared = 'Cleared';
+    // this.textCleared = 'Cleared';
 
-    setTimeout(() => {
-      this.textCleared = '';
-    }, 1000);
+    // setTimeout(() => {
+    //   this.textCleared = '';
+    // }, 1000);
   }
 }
