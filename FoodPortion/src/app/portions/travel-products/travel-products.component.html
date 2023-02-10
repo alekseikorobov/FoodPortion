@@ -13,18 +13,18 @@
     </tr>
 </table>
 
-<!-- <div class="my-sep"></div>
+<div class="my-sep"></div>
 
 <div class="row">
-    <div class="col-6 col-md-3"  style="text-align: center;">
+    <div class="col-6 col-md-3">
         <button class="btn btn-primary" style="margin: 10px;"  (click)="download()">Выгрузить</button>
     </div>
-</div> -->
+</div>
 
 <div class="my-sep"></div>
 
 
-<table class="table">
+<table class="table" id="products">
     <thead>
         <tr>
             <th>Наименование</th>
@@ -41,10 +41,16 @@
             <td>{{product.onePortionG * params.count_people}}</td>
         </tr>
         <tr style="font-weight: bold;">
-            <td></td>
+            <td>Общее</td>
             <td>{{products_g.onePortionG}}</td>
             <td></td>
             <td>{{products_g.onePortionG * params.count_people}}</td>
+        </tr>
+        <tr style="font-weight: bold;">
+            <td>Общее на день ({{params.count_day}} дней)</td>
+            <td>{{products_g.onePortionG / params.count_day}}</td>
+            <td></td>
+            <td>{{products_g.onePortionG * params.count_people / params.count_day}}</td>
         </tr>
     </tbody>
 </table>

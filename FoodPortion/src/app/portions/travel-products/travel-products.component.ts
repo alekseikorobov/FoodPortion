@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IParams, IPortionDay, IPortionPart, IProduct } from 'src/app/shared/models';
 import { StorageService } from 'src/app/shared/storage.service';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-travel-products',
@@ -84,7 +85,22 @@ export class TravelProductsComponent {
     return this.storageService.params;
   }
 
-  download() {
+  
+  download(): void
+  {
 
+    //var worksheet = XLSX.utils.json_to_sheet(data);
+
+    /* pass here the table id */
+    let element = document.getElementById('products');
+    const worksheet: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, worksheet, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, "products.xlsx");
+ 
   }
 }
